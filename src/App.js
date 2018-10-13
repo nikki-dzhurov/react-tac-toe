@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
-import TicTacToe from './tic-tac-toe';
+import React from 'react';
+import TicTacToe from 'complex-components/tic-tac-toe';
 
-class App extends Component {
+export default class App extends React.Component {
 	render() {
 		return (
-			<TicTacToe
-				className='tic-tac-toe'
-			/>
+			<TicTacToe className='tic-tac-toe' />
 		);
 	}
 }
-
-export default App;
