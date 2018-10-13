@@ -9,24 +9,35 @@ body {
 	background-color: #ddd;
 }
 
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-	monospace;
-}
-
-table, tr, td {
-	border: 1px solid black;
-}
-
-#root {
-}
-
-.tic-tac-toe {
+.game-container {
 	width: 500px;
 	height: 500px;
 
-	position:absolute;
+	position: absolute;
 	top: calc(50% - 250px);
 	left: calc(50% - 250px);
+}
+
+.game-container button {
+	display: block;
+	margin: 5px auto;
+}
+
+.tic-tac-toe {
+	font-size: 100px;
+	border: 1px solid black;
 	background-color: white;
+	text-align: center;
+
+	width: 90%;
+	height: 90%;
+	table-layout: fixed;
+	margin: auto;
+}
+
+.tic-tac-toe td {
+	text-align: center;
+	width: 33%;
+	height: 33%;
+	border: 1px solid black;
 }
