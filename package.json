@@ -1,20 +1,26 @@
 {
   "name": "react-tac-toe",
   "version": "0.1.0",
+  "author": "Nikki Dzhurov",
+  "license": "ISC",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "mocha --require @babel/register .",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
   },
   "browserslist": [
     ">0.2%",
