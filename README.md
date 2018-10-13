@@ -1,3 +1,3 @@
 # Tic Tac Toe
 
-## Under contruction :D
+Under contruction :smile:
