@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+	"eslint": "eslint src",
+	"eslint-fix": "eslint --fix src",
     "build": "react-scripts build",
     "test": "mocha --require @babel/register .",
     "eject": "react-scripts eject"
