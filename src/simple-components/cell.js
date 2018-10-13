@@ -2,9 +2,11 @@ import React from 'react';
 
 export default class Cell extends React.PureComponent {
 	render() {
+		const {rowIndex, cellIndex, value, className, onClick} = this.props;
+
 		return (
-			<td className={this.props.className}>
-				{this.props.data}
+			<td className={className || undefined} onClick={() => onClick(rowIndex, cellIndex)}>
+				{value}
 			</td>
 		);
 	}
