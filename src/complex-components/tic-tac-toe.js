@@ -3,8 +3,18 @@ import React from 'react';
 import Grid from 'complex-components/grid';
 
 export default class TicTacToe extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {};
+	}
+
+	handleCellClick(rowIdx, cellIdx) {
+		console.log(`[${rowIdx},${cellIdx}] was clicked`);
+	}
+
 	render() {
-		const {className} = this.props;
+		const {containerClassName, className} = this.props;
 		const rowData = new Array(3).fill({
 			className: '',
 			cellData: new Array(3).fill({
@@ -14,10 +24,16 @@ export default class TicTacToe extends React.Component {
 		});
 
 		return (
-			<Grid
-				className={className}
-				rowData={rowData}
-			/>
+			<div className={containerClassName}>
+				<button onClick={this.startNewGame}>
+					New Game
+				</button>
+				<Grid
+					className={className}
+					rowData={rowData}
+					onCellClick={this.handleCellClick}
+				/>
+			</div>
 		);
 	}
 }
