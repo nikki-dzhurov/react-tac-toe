@@ -16,8 +16,8 @@ export default class TicTacToe extends React.Component {
 		};
 
 		this.players = {
-			[playerOneKey]: {sign: 'X'},
-			[playerTwoKey]: {sign: 'O'},
+			[playerOneKey]: {sign: 'X', name: 'Player One'},
+			[playerTwoKey]: {sign: 'O', name: 'Player Two'},
 		};
 
 		this.startNewGame = this.startNewGame.bind(this);
@@ -38,8 +38,8 @@ export default class TicTacToe extends React.Component {
 	getWinner(gameTable) {
 		const tableLength = gameTable.length;
 		const generateResult = (winnerId, orientation, idxGeneratorFn) => ({
-			winnerId,
 			orientation,
+			id: winnerId,
 			indices: this.generateWinnerIndices(tableLength, idxGeneratorFn),
 		});
 
@@ -53,7 +53,6 @@ export default class TicTacToe extends React.Component {
 			}
 
 			let verticalIds = [];
-
 			for (let k = 0; k < tableLength; k++) {
 				verticalIds.push(gameTable[k][i]);
 			}
@@ -64,7 +63,7 @@ export default class TicTacToe extends React.Component {
 
 			let secondaryIdx = tableLength - 1 - i;
 			mainDiagonalIds.push(gameTable[i][i]);
-			secondaryDiagonalIds.push(gameTable[secondaryIdx][secondaryIdx]);
+			secondaryDiagonalIds.push(gameTable[i][secondaryIdx]);
 		}
 
 		// check for diagonal winner
@@ -105,7 +104,6 @@ export default class TicTacToe extends React.Component {
 	}
 
 	handleCellClick(rowIdx, cellIdx) {
-		console.log(`[${rowIdx},${cellIdx}] was clicked`);
 		if (this.state.gameTable[rowIdx][cellIdx]) {
 			return;
 		}
@@ -142,7 +140,6 @@ export default class TicTacToe extends React.Component {
 				let cellClassName = '';
 				if (this.state.winner && this.state.winner.indices.findIndex(el => el[0] === rowIdx && el[1] === cellIdx) !== -1) {
 					cellClassName = 'line-' + this.state.winner.orientation;
-					console.log(rowIdx, cellIdx)
 				}
 
 				return {
@@ -155,6 +152,7 @@ export default class TicTacToe extends React.Component {
 
 	startNewGame() {
 		this.setState({
+			winner: null,
 			currentPlayerId: playerOneKey,
 			gameTable: this.getDefaultGameTable(),
 		});
@@ -163,17 +161,27 @@ export default class TicTacToe extends React.Component {
 	render() {
 		const {containerClassName, className} = this.props;
 		const rowData = this.buildRowDataFromState();
+		let winnerName = '';
+		if (this.state.winner && this.players[this.state.winner.id]) {
+			winnerName = this.players[this.state.winner.id].name;
+		}
 
 		return (
 			<div className={containerClassName}>
-				<button onClick={this.startNewGame}>
-					New Game
-				</button>
 				<Grid
 					className={className}
 					rowData={rowData}
-					onCellClick={this.handleCellClick}
+					onCellClick={!winnerName ? this.handleCellClick : undefined}
 				/>
+				{winnerName && (
+					<div className='winner-container'>
+						<span className='winner-text'>{`The winner is ${winnerName}!`}</span>
+						<br />
+						<button className='new-game-btn' onClick={this.startNewGame}>
+							New Game
+						</button>
+					</div>
+				)}
 			</div>
 		);
 	}
