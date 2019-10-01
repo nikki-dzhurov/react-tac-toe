@@ -6,23 +6,23 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-	"eslint": "eslint src",
-	"eslint-fix": "eslint --fix src",
+    "eslint": "eslint src",
+    "eslint-fix": "eslint --fix src",
     "build": "react-scripts build",
     "test": "mocha --require @babel/register .",
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-scripts": "2.0.4"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/register": "^7.0.0",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/register": "^7.6.2",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^6.2.0"
   },
   "browserslist": [
     ">0.2%",
