@@ -31,7 +31,7 @@ export default class TicTacToe extends React.Component {
 		// 	[null, null, null],
 		// ];
 		return new Array(3).fill(
-			new Array(3).fill(null)
+			new Array(3).fill(null),
 		);
 	}
 
