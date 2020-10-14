@@ -21,9 +21,6 @@ export default class TicTacToe extends React.Component {
 			[playerOneKey]: {sign: 'X', name: 'Player One'},
 			[playerTwoKey]: {sign: 'O', name: 'Player Two'},
 		};
-
-		this.startNewGame = this.startNewGame.bind(this);
-		this.handleCellClick = this.handleCellClick.bind(this);
 	}
 
 	getDefaultGameTable() {
@@ -40,7 +37,7 @@ export default class TicTacToe extends React.Component {
 		return playerOneKey;
 	}
 
-	handleCellClick(rowIdx, cellIdx) {
+	handleCellClick = (rowIdx, cellIdx) => {
 		if (this.state.gameTable[rowIdx][cellIdx]) {
 			return;
 		}
@@ -93,7 +90,7 @@ export default class TicTacToe extends React.Component {
 		}));
 	}
 
-	startNewGame() {
+	startNewGame = () => {
 		this.setState({
 			winner: null,
 			isDraw: false,
