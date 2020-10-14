@@ -26,11 +26,6 @@ export default class TicTacToe extends React.Component {
 	}
 
 	getDefaultGameTable() {
-		// return [
-		// 	[null, null, null],
-		// 	[null, null, null],
-		// 	[null, null, null],
-		// ];
 		return new Array(3).fill(
 			new Array(3).fill(null),
 		);
