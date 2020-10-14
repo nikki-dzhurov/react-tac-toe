@@ -11,7 +11,6 @@ function createWindow() {
 		},
 	});
 
-	win.openDevTools();
 	win.loadFile('./build/index.html');
 	win.once('ready-to-show', () => {
 		win.show();
