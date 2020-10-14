@@ -12,6 +12,7 @@ export default class TicTacToe extends React.Component {
 
 		this.state = {
 			winner: null,
+			isDraw: false,
 			gameTable: this.getDefaultGameTable(),
 			currentPlayerId: playerOneKey,
 		};
@@ -51,10 +52,16 @@ export default class TicTacToe extends React.Component {
 		let newGameTable = [...gameTable];
 		newGameTable[rowIdx] = newRow;
 
-		let winner = getWinner(newGameTable);
+		const winner = getWinner(newGameTable);
+
+		let isDraw = false;
+		if (!winner && newGameTable.every(row => row.every(el => el !== null))) {
+			isDraw = true;
+		}
 
 		this.setState({
 			winner,
+			isDraw,
 			gameTable: newGameTable,
 			currentPlayerId: this.getNextPlayerId(),
 		});
@@ -89,12 +96,14 @@ export default class TicTacToe extends React.Component {
 	startNewGame() {
 		this.setState({
 			winner: null,
+			isDraw: false,
 			currentPlayerId: playerOneKey,
 			gameTable: this.getDefaultGameTable(),
 		});
 	}
 
 	render() {
+		const { isDraw } = this.state;
 		const {containerClassName, className} = this.props;
 		const rowData = this.buildRowDataFromState();
 		let winnerName = '';
@@ -109,9 +118,10 @@ export default class TicTacToe extends React.Component {
 					rowData={rowData}
 					onCellClick={!winnerName ? this.handleCellClick : undefined}
 				/>
-				{winnerName && (
+
+				{(winnerName || isDraw) && (
 					<div className='winner-container'>
-						<span className='winner-text'>{`The winner is ${winnerName}!`}</span>
+						<span className='winner-text'>{isDraw ? 'The game is draw' : `The winner is ${winnerName}!`}</span>
 						<br />
 						<button className='new-game-btn' onClick={this.startNewGame}>
 							New Game

@@ -8,13 +8,13 @@
   "homepage": ".",
   "description": "Tic Tac Toe game",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "react-scripts start",
     "eslint": "eslint src",
     "eslint-fix": "eslint --fix src",
     "build": "react-scripts build",
     "test": "mocha --require @babel/register .",
     "eject": "react-scripts eject",
-    "electron": "electron .",
+    "electron": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
