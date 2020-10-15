@@ -109,6 +109,20 @@ export default class TicTacToe extends React.Component {
 		});
 	}
 
+	resetScore = () => {
+		const players = { ...this.state.players };
+		players[playerOneKey].score = 0;
+		players[playerTwoKey].score = 0;
+
+		this.setState({
+			players,
+			winner: null,
+			isDraw: false,
+			currentPlayerId: playerOneKey,
+			gameTable: this.getDefaultGameTable(),
+		});
+	}
+
 	render() {
 		const { isDraw } = this.state;
 		const {containerClassName, className} = this.props;
@@ -137,6 +151,9 @@ export default class TicTacToe extends React.Component {
 						<br />
 						<button className='new-game-btn' onClick={this.startNewGame}>
 							Continue
+						</button>
+						<button className='reset-game-btn' onClick={this.resetScore}>
+							Reset
 						</button>
 					</div>
 				)}
