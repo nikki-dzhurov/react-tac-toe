@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default ({ data: { sign, name } }) => (
+export default ({ data: { sign, name, color } }) => (
 	<span style={{ fontSize: 20 }}>
-		(<span>{sign}</span>)
+		(<span style={{color}}>{sign}</span>)
 		{name}
 	</span>
 );
