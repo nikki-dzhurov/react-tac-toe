@@ -15,11 +15,10 @@ export default class TicTacToe extends React.Component {
 			isDraw: false,
 			gameTable: this.getDefaultGameTable(),
 			currentPlayerId: playerOneKey,
-		};
-
-		this.players = {
-			[playerOneKey]: {sign: 'X', name: 'Player One'},
-			[playerTwoKey]: {sign: 'O', name: 'Player Two'},
+			players: {
+				[playerOneKey]: { sign: 'X', name: 'Player One' },
+				[playerTwoKey]: { sign: 'O', name: 'Player Two' },
+			},
 		};
 	}
 
@@ -65,7 +64,7 @@ export default class TicTacToe extends React.Component {
 	}
 
 	getPlayerSignById(id) {
-		const playerData = this.players[id];
+		const playerData = this.state.players[id];
 		if (playerData) {
 			return playerData.sign;
 		}
@@ -104,12 +103,17 @@ export default class TicTacToe extends React.Component {
 		const {containerClassName, className} = this.props;
 		const rowData = this.buildRowDataFromState();
 		let winnerName = '';
-		if (this.state.winner && this.players[this.state.winner.id]) {
-			winnerName = this.players[this.state.winner.id].name;
+		if (this.state.winner && this.state.players[this.state.winner.id]) {
+			winnerName = this.state.players[this.state.winner.id].name;
 		}
 
 		return (
 			<div className={containerClassName}>
+				<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: 50}}>
+					<Player data={this.state.players[playerOneKey]} />
+					<Player data={this.state.players[playerTwoKey]} />
+				</div>
+
 				<Grid
 					className={className}
 					rowData={rowData}
@@ -129,3 +133,7 @@ export default class TicTacToe extends React.Component {
 		);
 	}
 }
+
+const Player = ({ data: {sign, name} }) => (
+	<span style={{ fontSize: 20 }}>{sign} - {name}</span>
+);
