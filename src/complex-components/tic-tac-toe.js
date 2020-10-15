@@ -17,8 +17,8 @@ export default class TicTacToe extends React.Component {
 			gameTable: this.getDefaultGameTable(),
 			currentPlayerId: playerOneKey,
 			players: {
-				[playerOneKey]: { sign: 'X', name: 'Red Player', score: 0, color: '#f00' },
-				[playerTwoKey]: { sign: 'O', name: 'Blue Player', score: 0, color: '#00f' },
+				[playerOneKey]: { sign: 'X', name: 'Red Player', score: 0, color: '#f00', signClassName: 'player-sign-red' },
+				[playerTwoKey]: { sign: 'O', name: 'Blue Player', score: 0, color: '#00f', signClassName: 'player-sign-blue' },
 			},
 		};
 	}
@@ -86,6 +86,10 @@ export default class TicTacToe extends React.Component {
 				let cellClassName = '';
 				if (this.state.winner && this.state.winner.indices.findIndex(el => el[0] === rowIdx && el[1] === cellIdx) !== -1) {
 					cellClassName = 'line-' + this.state.winner.orientation;
+				}
+
+				if (playerId) {
+					cellClassName += ' ' + this.state.players[playerId].signClassName;
 				}
 
 				return {

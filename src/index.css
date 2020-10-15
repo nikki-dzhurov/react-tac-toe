@@ -39,8 +39,10 @@ body {
 	font-weight: 700;
 	font-size: 20px;
 	padding: 19px 39px 18px;
-	margin: 5px auto;
+	margin: 5px 10px;
+}
 
+.new-game-btn {
 	border-color: var(--border-color);
 	background-color: var(--light-bg);
 }
@@ -50,10 +52,17 @@ body {
 	border-color: var(--border-color);
 }
 
+.player-sign-red {
+	color: #f00;
+}
+
+.player-sign-blue {
+	color: #00f;
+}
+
 .game-container .winner-container {
 	margin-top: 20px;
 }
-
 
 .game-container .winner-text {
 	font-size: 30px;
@@ -61,37 +70,37 @@ body {
 
 .line-row {
 	background: linear-gradient(0deg,
-		#fff calc(50% - 2px),
-		var(--dark-bg) calc(50% - 2px),
-		var(--dark-bg) calc(50% + 2px),
-		#fff calc(50% + 2px)
+		#fff calc(50% - 4px),
+		var(--dark-bg) calc(50% - 4px),
+		var(--dark-bg) calc(50% + 4px),
+		#fff calc(50% + 4px)
 	);
 }
 
 .line-column {
 	background: linear-gradient(90deg,
-		#fff calc(50% - 2px),
-		var(--dark-bg) calc(50% - 2px),
-		var(--dark-bg) calc(50% + 2px),
-		#fff calc(50% + 2px)
+		#fff calc(50% - 4px),
+		var(--dark-bg) calc(50% - 4px),
+		var(--dark-bg) calc(50% + 4px),
+		#fff calc(50% + 4px)
 	);
 }
 
 .line-main-diagonal {
 	background: linear-gradient(45deg,
-		#fff calc(50% - 2px),
-		var(--dark-bg) calc(50% - 2px),
-		var(--dark-bg) calc(50% + 2px),
-		#fff calc(50% + 2px)
+		#fff calc(50% - 4px),
+		var(--dark-bg) calc(50% - 4px),
+		var(--dark-bg) calc(50% + 4px),
+		#fff calc(50% + 4px)
 	);
 }
 
 .line-secondary-diagonal {
 	background: linear-gradient(-45deg,
-		#fff calc(50% - 2px),
-		var(--dark-bg) calc(50% - 2px),
-		var(--dark-bg) calc(50% + 2px),
-		#fff calc(50% + 2px)
+		#fff calc(50% - 4px),
+		var(--dark-bg) calc(50% - 4px),
+		var(--dark-bg) calc(50% + 4px),
+		#fff calc(50% + 4px)
 	);
 }
 
