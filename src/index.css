@@ -2,6 +2,10 @@
 	--light-bg: #5FCF80;
 	--dark-bg: #4BC970;
 	--border-color: #3AC162;
+
+	--reset-light-bg: #d44747;
+	--reset-dark-bg: #ab1c09;
+	--reset-border-color: #6e1111;
 }
 
 body {
@@ -23,7 +27,7 @@ body {
 	left: calc(50% - 250px);
 }
 
-.new-game-btn {
+.new-game-btn, .reset-game-btn {
 	border-style: solid;
 	border-width: 0px 0px 3px;
 	box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
@@ -47,9 +51,19 @@ body {
 	background-color: var(--light-bg);
 }
 
+.reset-game-btn {
+	border-color: var(--reset-border-color);
+	background-color: var(--reset-light-bg);
+}
+
 .new-game-btn:hover, .new-game-btn:focus, .new-game-btn:active {
 	background-color: var(--dark-bg);
 	border-color: var(--border-color);
+}
+
+.reset-game-btn:hover, .reset-game-btn:focus, .reset-game-btn:active {
+	background-color: var(--reset-dark-bg);
+	border-color: var(--reset-border-color);
 }
 
 .player-sign-red {
