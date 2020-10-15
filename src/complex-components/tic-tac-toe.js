@@ -2,6 +2,7 @@ import React from 'react';
 
 import Grid from 'complex-components/grid';
 import { getWinner } from 'utils/winner';
+import Player from 'simple-components/player';
 
 const playerOneKey = 'p1';
 const playerTwoKey = 'p2';
@@ -133,7 +134,3 @@ export default class TicTacToe extends React.Component {
 		);
 	}
 }
-
-const Player = ({ data: {sign, name} }) => (
-	<span style={{ fontSize: 20 }}>{sign} - {name}</span>
-);
