@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Grid from 'complex-components/grid';
+import Score from 'complex-components/score';
 import { getWinner } from 'utils/winner';
-import Player from 'simple-components/player';
 
 const playerOneKey = 'p1';
 const playerTwoKey = 'p2';
@@ -17,8 +17,8 @@ export default class TicTacToe extends React.Component {
 			gameTable: this.getDefaultGameTable(),
 			currentPlayerId: playerOneKey,
 			players: {
-				[playerOneKey]: { sign: 'X', name: 'Player One' },
-				[playerTwoKey]: { sign: 'O', name: 'Player Two' },
+				[playerOneKey]: { sign: 'X', name: 'Red Player', score: 0, color: '#f00' },
+				[playerTwoKey]: { sign: 'O', name: 'Blue Player', score: 0, color: '#00f' },
 			},
 		};
 	}
@@ -56,9 +56,15 @@ export default class TicTacToe extends React.Component {
 			isDraw = true;
 		}
 
+		const players = { ...this.state.players };
+		if (winner) {
+			players[winner.id].score += 1;
+		}
+
 		this.setState({
 			winner,
 			isDraw,
+			players,
 			gameTable: newGameTable,
 			currentPlayerId: this.getNextPlayerId(),
 		});
@@ -110,10 +116,10 @@ export default class TicTacToe extends React.Component {
 
 		return (
 			<div className={containerClassName}>
-				<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: 50}}>
-					<Player data={this.state.players[playerOneKey]} />
-					<Player data={this.state.players[playerTwoKey]} />
-				</div>
+				<Score
+					playerOne={this.state.players[playerOneKey]}
+					playerTwo={this.state.players[playerTwoKey]}
+				/>
 
 				<Grid
 					className={className}
@@ -126,7 +132,7 @@ export default class TicTacToe extends React.Component {
 						<span className='winner-text'>{isDraw ? 'The game is draw' : `The winner is ${winnerName}!`}</span>
 						<br />
 						<button className='new-game-btn' onClick={this.startNewGame}>
-							New Game
+							Continue
 						</button>
 					</div>
 				)}
