@@ -14,8 +14,8 @@
     "build": "react-scripts build",
     "test": "mocha --require @babel/register src/**/*.test.js",
     "eject": "react-scripts eject",
-    "electron": "electron-forge start",
-    "package": "electron-forge package",
+    "electron": "react-scripts build; electron-forge start",
+    "package": "react-scripts build; electron-forge package",
     "make": "electron-forge make"
   },
   "dependencies": {
@@ -57,17 +57,7 @@
           }
         },
         {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
           "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
           "config": {}
         }
       ]
