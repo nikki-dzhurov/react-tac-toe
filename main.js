@@ -17,9 +17,8 @@ function createWindow() {
 		win.focus();
 	});
 
-	const menu = new Menu();
-	menu.setApplicationMenu(
-		menu.buildFromTemplate([{
+	Menu.setApplicationMenu(
+		Menu.buildFromTemplate([{
 			label: 'File',
 			submenu: [
 				isMac ? { role: 'close' } : { role: 'quit' },
