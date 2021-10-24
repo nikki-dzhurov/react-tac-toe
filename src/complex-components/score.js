@@ -2,7 +2,7 @@ import React from 'react';
 
 import Player from 'simple-components/player';
 
-export default ({playerOne, playerTwo}) => (
+const Score = ({playerOne, playerTwo}) => (
 	<div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '20px 50px' }}>
 		<Player data={playerOne} />
 		<span style={{fontSize: 24}}>
@@ -11,3 +11,5 @@ export default ({playerOne, playerTwo}) => (
 		<Player data={playerTwo} />
 	</div>
 );
+
+export default Score;

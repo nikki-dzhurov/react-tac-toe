@@ -2,12 +2,7 @@ import React from 'react';
 
 import Cell from 'simple-components/cell';
 
-export default ({
-	rowIndex,
-	className,
-	cellData,
-	onCellClick,
-}) => (
+const Row = ({ rowIndex, className, cellData, onCellClick }) => (
 	<tr className={className || undefined}>
 		{cellData.map((data, idx) => (
 			<Cell
@@ -20,3 +15,5 @@ export default ({
 		))}
 	</tr>
 );
+
+export default Row;

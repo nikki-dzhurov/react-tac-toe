@@ -2,7 +2,7 @@ import React from 'react';
 
 import Row from 'simple-components/row';
 
-export default ({ rowData, className, onCellClick }) => (
+const Grid = ({ rowData, className, onCellClick }) => (
 	<table className={className}>
 		<tbody>
 			{rowData.map((data, idx) => (
@@ -16,3 +16,5 @@ export default ({ rowData, className, onCellClick }) => (
 		</tbody>
 	</table>
 );
+
+export default Grid;

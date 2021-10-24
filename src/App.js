@@ -1,9 +1,11 @@
 import React from 'react';
 import TicTacToe from 'complex-components/tic-tac-toe';
 
-export default () => (
+const App = () => (
 	<TicTacToe
 		containerClassName='game-container'
 		className='tic-tac-toe'
 	/>
 );
+
+export default App;
