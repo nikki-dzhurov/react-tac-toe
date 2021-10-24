@@ -19,11 +19,11 @@ body {
 
 .game-container {
 	width: 500px;
-	height: 500px;
+	height: 650px;
 
 	position: absolute;
 	text-align: center;
-	top: calc(50% - 250px);
+	top: calc(50% - 300px);
 	left: calc(50% - 250px);
 }
 
@@ -124,8 +124,8 @@ body {
 	background-color: white;
 	text-align: center;
 
-	width: 90%;
-	height: 90%;
+	width: 450px;
+	height: 450px;
 	table-layout: fixed;
 	margin: auto;
 }

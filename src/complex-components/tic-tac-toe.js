@@ -125,7 +125,6 @@ export default class TicTacToe extends React.Component {
 
 	render() {
 		const { isDraw } = this.state;
-		const {containerClassName, className} = this.props;
 		const rowData = this.buildRowDataFromState();
 		let winnerName = '';
 		if (this.state.winner && this.state.players[this.state.winner.id]) {
@@ -133,14 +132,14 @@ export default class TicTacToe extends React.Component {
 		}
 
 		return (
-			<div className={containerClassName}>
+			<div className='game-container'>
 				<Score
 					playerOne={this.state.players[playerOneKey]}
 					playerTwo={this.state.players[playerTwoKey]}
 				/>
 
 				<Grid
-					className={className}
+					className='tic-tac-toe'
 					rowData={rowData}
 					onCellClick={!winnerName ? this.handleCellClick : undefined}
 				/>
